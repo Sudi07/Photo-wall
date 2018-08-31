@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+html, body, .wrapper{
+    width: 100%;
+    height: 100%;
+}
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+.wrapper .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+}
+
+.item {
+    width: 175px;
+    height: 100%;
+    background-color: #333;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: height 0.5s linear 0.5s, width 0.5s linear;
+}
+.inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s linear;
+}
+
+.item:nth-of-type(1) .inner{
+    transition-delay: 0.1s;
+}
+.item:nth-of-type(2) .inner{
+    transition-delay: 0.2s;
+}
+.item:nth-of-type(3) .inner{
+    transition-delay: 0.3s;
+}
+.item:nth-of-type(4) .inner{
+    transition-delay: 0.4s;
+}
+.item:nth-of-type(5) .inner{
+    transition-delay: 0.5s;
+}
+.item:nth-of-type(6) .inner{
+    transition-delay: 0.6s;
+}
+.init .item .inner{
+    transform: translate3d(0, 100%, 0);
+}
+.oI {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    overflow: hidden;
+    background-size: cover;
+    border-radius: 15px;
+    opacity: 0.5;
+}
+.item:nth-of-type(1) .oI{
+    background-image: url('./img/1.png');
+}
+.item:nth-of-type(2) .oI{
+    background-image: url('./img/2.png');
+}
+.item:nth-of-type(3) .oI{
+    background-image: url('./img/3.png');
+}
+.item:nth-of-type(4) .oI{
+    background-image: url('./img/4.png');
+}
+.item:nth-of-type(5) .oI{
+    background-image: url('./img/5.png');
+}
+.item:nth-of-type(6) .oI{
+    background-image: url('./img/6.png');
+}
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    transition: opacity 0.2s linear 1s;
+}
+.item h2 {
+    font-size: 16px;
+    transition: font-size 0.2s linear;
+}
+.item:hover .oI {
+    opacity: 1;
+}
+.item:hover h2 {
+    font-size: 24px;
+}
+.wrapper-active .content .item{
+    transition: height 0.5s linear, width 0.5s linear 0.5s; 
+}
+.active {
+    width: 100%;
+}
+.wrapper-active .item:not(.active) {
+    width: 0;
+    height: 0;
+}
+.wrapper-active .title {
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+.item .inner .direction {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top: 9%;
+    opacity: 0;
+}
+.wrapper-active .item .inner .direction {
+    opacity: 1;
+    transition: opacity 0.5s linear 1s;
+}
+.wrapper-active .direction .header{
+    position: absolute;
+    font-size: 24px;
+    color: #fff;
+    left: 5%;
+}
+.close:before .close:after {
+    content: '';
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+.item .inner .direction .close{
+    position: absolute;
+    right: 80px;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+}
+.wrapper-active .active .inner .direction .close {
+    transform: rotate(360deg);
+    transition: transform 0.5s ease-out 1s;
+}
+.close:before, .close:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 4px;
+    background: #fff; 
+}
